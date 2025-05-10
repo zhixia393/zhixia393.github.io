@@ -1,3 +1,4 @@
 function sayHello() {
-  alert("Thanks for visiting my website!");
+  let name = document.getElementById("name_input").value;
+  alert("Hi " + name);
 }
