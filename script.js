@@ -166,5 +166,74 @@ setInterval(() => {
     }
 }, 100);
 
+// Console cheat commands
+window.gameCheats = {
+    // Add cookies
+    addCookies: function(amount) {
+        if (typeof amount !== 'number' || amount <= 0) {
+            console.error('Please specify a positive number of cookies to add');
+            return;
+        }
+        gameState.cookies += amount;
+        updateUI();
+        saveGame();
+        console.log(`Added ${amount} cookies! Total: ${gameState.cookies}`);
+    },
+    
+    // Set cookies to specific amount
+    setCookies: function(amount) {
+        if (typeof amount !== 'number' || amount < 0) {
+            console.error('Please specify a non-negative number of cookies');
+            return;
+        }
+        gameState.cookies = amount;
+        updateUI();
+        saveGame();
+        console.log(`Set cookies to ${amount}!`);
+    },
+    
+    // Unlock all upgrades
+    unlockAll: function() {
+        for (const [id, upgrade] of Object.entries(gameState.upgrades)) {
+            upgrade.owned = 10;
+            upgrade.cost = 0;
+            
+            if (upgrade.type === "click") {
+                if (id === "double-clicks") {
+                    gameState.cookiesPerClick *= Math.pow(upgrade.effect, 10);
+                } else {
+                    gameState.cookiesPerClick += upgrade.effect * 10;
+                }
+            } else {
+                gameState.cookiesPerSecond += upgrade.effect * 10;
+            }
+        }
+        updateUI();
+        saveGame();
+        console.log('All upgrades unlocked and maxed out!');
+    },
+    
+    // Reset game
+    resetGame: function() {
+        if (confirm('Are you sure you want to reset ALL game progress?')) {
+            localStorage.removeItem('cookieClickerSave');
+            location.reload();
+        }
+    },
+    
+    // Show help
+    help: function() {
+        console.log('Available cheat commands:');
+        console.log('gameCheats.addCookies(amount) - Add cookies');
+        console.log('gameCheats.setCookies(amount) - Set cookie count');
+        console.log('gameCheats.unlockAll() - Unlock all upgrades');
+        console.log('gameCheats.resetGame() - Reset all progress');
+        console.log('gameCheats.help() - Show this help');
+    }
+};
+
+// Initialize cheats
+console.log('Cheat commands available! Type gameCheats.help() for options.');
+
 // Initialize the game
 loadGame();
