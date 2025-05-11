@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="topbar">
+        <h1>Clicker Game</h1>
+        <div class="stats">
+            <span id="cookies">0</span> cookies
+            <span id="cookies-per-second">0</span> per second
+            <span id="cookies-per-click">1</span> per click
+        </div>
+    </div>
+    
+    <div class="game-container">
+        <div class="upgrades-sidebar">
+            <h2>Upgrades</h2>
+            <div class="upgrades-scrollbox">
+                <div class="upgrade" id="better-clicks">
+                    <h3>Sticky Fingers</h3>
+                    <p>+1 cookie per click</p>
+                    <p>Cost: <span class="cost">20</span> cookies</p>
+                    <p>Owned: <span class="owned">0</span></p>
+                    <button class="buy-btn">Buy</button>
+                </div>
+                
+                <div class="upgrade" id="double-clicks">
+                    <h3>Cookie Gloves</h3>
+                    <p>Double your click power</p>
+                    <p>Cost: <span class="cost">100</span> cookies</p>
+                    <p>Owned: <span class="owned">0</span></p>
+                    <button class="buy-btn">Buy</button>
+                </div>
+
+                <div class="upgrade" id="cursor">
+                    <h3>Cursor</h3>
+                    <p>+1 cookie per second</p>
+                    <p>Cost: <span class="cost">10</span> cookies</p>
+                    <p>Owned: <span class="owned">0</span></p>
+                    <button class="buy-btn">Buy</button>
+                </div>
+                
+                <div class="upgrade" id="grandma">
+                    <h3>Grandma</h3>
+                    <p>+5 cookies per second</p>
+                    <p>Cost: <span class="cost">50</span> cookies</p>
+                    <p>Owned: <span class="owned">0</span></p>
+                    <button class="buy-btn">Buy</button>
+                </div>
+                
+                <div class="upgrade" id="bakery">
+                    <h3>Bakery</h3>
+                    <p>+10 cookies per second</p>
+                    <p>Cost: <span class="cost">200</span> cookies</p>
+                    <p>Owned: <span class="owned">0</span></p>
+                    <button class="buy-btn">Buy</button>
+                </div>
+
+                <div class="upgrade" id="factory">
+                    <h3>Cookie Factory</h3>
+                    <p>+20 cookies per second</p>
+                    <p>Cost: <span class="cost">500</span> cookies</p>
+                    <p>Owned: <span class="owned">0</span></p>
+                    <button class="buy-btn">Buy</button>
+                </div>
+
+                <div class="upgrade" id="mine">
+                    <h3>Chocolate Mine</h3>
+                    <p>+50 cookies per second</p>
+                    <p>Cost: <span class="cost">2000</span> cookies</p>
+                    <p>Owned: <span class="owned">0</span></p>
+                    <button class="buy-btn">Buy</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <button id="cookie" class="cookie-button">
+                <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Cookie" width="200">
+                <div class="click-effect">+1</div>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
